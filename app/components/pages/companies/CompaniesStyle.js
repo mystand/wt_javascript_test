@@ -12,9 +12,3 @@ export const Header = styled.div`
   font-weight: bold;
   margin-bottom: 30px;
 `
-export const Company = styled.div`
-  background-color: #ddd;
-  padding: 20px;
-  font-size: 20px;
-  margin: 10px;
-`

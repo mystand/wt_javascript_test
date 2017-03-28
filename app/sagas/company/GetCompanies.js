@@ -1,16 +1,20 @@
+//@flow
 import { put, takeEvery } from 'redux-saga/effects'
-import * as api from '~/app/api'
-import { SAGA_GET_COMPANIES, SET_COMPANIES } from '~/app/reducers/Company'
 import { createAction } from 'redux-actions'
 
-function* perform(_action) {
+import * as api from '~/app/api'
+import { SAGA_GET_COMPANIES, SET_COMPANIES } from '~/app/reducers/Company'
+
+function* perform(action) {
+  const { page } = action.payload
+
   try {
-    const companies = yield api.getCompanies()
-    yield put(createAction(SET_COMPANIES)({companies}))
+    const result = yield api.getCompanies(page)
+    yield put(createAction(SET_COMPANIES)(result))
   } catch (err) { console.log(err) }
 }
 
-function* watch() {
+function* watch(): Generator<*,*,*> {
   yield takeEvery(SAGA_GET_COMPANIES, perform)
 }
 
