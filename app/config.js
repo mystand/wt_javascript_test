@@ -1,5 +1,5 @@
 export const api = {
-  url: process.env.NODE_ENV === 'development' ? 'http://192.168.0.122:3000' : 'not intended for production use'
+  url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'not intended for production use'
 }
 
 export const routes = {

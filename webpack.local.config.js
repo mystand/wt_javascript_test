@@ -15,8 +15,7 @@ config.devServer = {
   contentBase: path.join(__dirname, './dist'),
   historyApiFallback: true,
   port: 8082,
-  inline: true,
-  host: '0.0.0.0'
+  inline: true
 }
 
 module.exports = config
